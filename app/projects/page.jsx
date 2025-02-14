@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import proje1 from "../../public/image.png"
+import proje2 from "../../public/recipe-site.png"
+
 export default function Projects() {
   return (
     <main className="min-h-screen from-gray-900 bg-gradient-to-b to-gray-800 pt-20">
@@ -31,7 +33,18 @@ export default function Projects() {
             </div>
           </div>
 
-        
+          <div className="w-[300px] text-gray-200  flex flex-col rounded-md shadow-xl
+          bg-gray-800
+          ">
+         
+           <div>
+            <Image src={proje2} alt="project image" className="w-full object-cover rounded-md "  /></div>
+            <div className="flex flex-col p-2">
+            <p className="text-xl flex justify-center items-center ">Portfölyo Sitesi</p>
+          Teknolojiler:  Next js, HTML, Tailwind CSS
+            </div>
+          </div>
+
         </motion.div>
       </motion.div>
     </main>
