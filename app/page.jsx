@@ -73,16 +73,16 @@ useEffect(() => {
 
 
 <div className='flex flex-row justify-center items-center lg:space-x-12 space-x-2 text-4xl  pt-12 text-blue-400   '>
-   <div className=' rounded-md  shadow-2xl p-8 w-44 bg-gray-700 transition delay-100 ease-in-out duration-300 hover:translate-y-1 hover:scale-100 hover:rotate-[360deg]'>
-  {projects} + <span className='text-xl '>Projeler</span>
+   <div className=' rounded-md  shadow-2xl lg:p-8 p-4  lg:w-44 w-32 bg-gray-700 transition delay-100 ease-in-out duration-300 hover:translate-y-1 hover:scale-100 hover:rotate-[360deg]'>
+  {projects}+ <span className='text-xl '>Projeler</span>
    </div>
 
-   <div className='rounded-md shadow-2xl p-8 w-44 bg-gray-700  transition delay-100 ease-in-out duration-300 hover:translate-y-1 hover:scale-100 hover:rotate-[360deg]'>
-  {blogs} + <span className='text-xl '><br></br>Bloglar</span>
+   <div className='rounded-md shadow-2xl lg:p-8 p-4 lg:w-44 w-32 bg-gray-700  transition delay-100 ease-in-out duration-300 hover:translate-y-1 hover:scale-100 hover:rotate-[360deg]'>
+  {blogs}+ <span className='text-xl '><br></br>Bloglar</span>
    </div>
 
-   <div className='rounded-md shadow-2xl p-8 w-44 bg-gray-700  transition delay-100 ease-in-out duration-300 hover:translate-y-1 hover:scale-100 hover:rotate-[360deg]'>
-  {certificate} + <span className='text-xl '><br></br>Sertifikalar</span>
+   <div className='rounded-md shadow-2xl lg:p-8 p-4  lg:w-44 w-32 bg-gray-700  transition delay-100 ease-in-out duration-300 hover:translate-y-1 hover:scale-100 hover:rotate-[360deg]'>
+  {certificate}+ <span className='text-xl '><br></br>Sertifikalar</span>
    </div>
 
    
