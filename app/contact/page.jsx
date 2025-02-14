@@ -1,5 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { BiLogoGmail } from "react-icons/bi";
+import { FaSquareXTwitter } from "react-icons/fa6";
+
 export default function Contact() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 pt-20">
@@ -61,15 +66,18 @@ export default function Contact() {
           <div className="mt-12 text-center space-y-4">
             <h2 className="text-2xl font-bold text-white">Diğer İletişim Kanalları</h2>
             <div className="flex justify-center space-x-6">
-              <a href="mailto:your@email.com" className="text-gray-300 hover:text-blue-500">
-                buldukhakan82@gmail.com
+              <a href="buldukhakan82@gmail.com" className="text-gray-300 hover:text-blue-500">
+                <BiLogoGmail size={30} className='transition delay-150 ease-in-out duration-300 hover:translate-y-1 hover:scale-110 hover:rotate-[360deg] '/>
               </a>
               <a href="https://linkedin.com/in/hakan-bulduk-b3a084317" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500">
+              <FaLinkedin size={30} className='transition delay-150 ease-in-out duration-300 hover:translate-y-1 hover:scale-110  hover:rotate-[360deg]'/>
               </a>
               <a href="https://github.com/hakan4773" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500">
-                GitHub
+                <FaGithub size={30} className='transition delay-150 ease-in-out duration-300 hover:translate-y-1 hover:scale-110 hover:rotate-[360deg] '/>
               </a>
-              
+              <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500">
+                <FaSquareXTwitter size={30} className='transition delay-150 ease-in-out duration-300 hover:translate-y-1 hover:scale-110 hover:rotate-[360deg] '/>
+              </a>
             </div>
           </div>
         </motion.div>
