@@ -6,15 +6,18 @@ export  async function POST(req){
 await connectToDatabase();
 try {
     const body = await req.json();
-    const { title, description } = body;
+    const { title, description,imageUrl } = body;
     
-    if(!title || !description){
+
+
+    if(!title || !description || !imageUrl){
         return NextResponse.json({ message: 'All fields are required' }, { status: 400 });
         }
 
     const newPortfolio = new portfolyo({
         title,
-        description
+        description,
+        imageUrl
         
       });
 await newPortfolio.save();
@@ -36,15 +39,8 @@ if(!project){
 }
 
 return NextResponse.json({project})
-
-
-
 } catch (error) {
     return NextResponse.json({message:"Error"})
 }
-    
-
-
-
 }
 
