@@ -1,11 +1,35 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import proje1 from "../../public/portfolio.png"
-import proje2 from "../../public/recipe-site.png"
-import proje3 from "../../public/ecommerce.png"
 
-export default function Projects() {
+import { useEffect, useState } from "react";
+export default  function Projects() {
+  const [projects,setProjects]=useState([]);
+
+  useEffect(()=>{
+    async function fetchData() {
+     try {
+      const res=await fetch("api/portfolyo",{
+        cache:"no-store",
+      })
+      if (!res.ok) {
+        throw new Error('Failed to fetch data');
+      }
+        const data=await res.json();
+        console.log(data)
+       setProjects(data.project)
+  
+      }
+  
+      catch (error) {
+        console.error("Error fetching data:", error);
+  
+     }
+    }
+    fetchData();
+  
+  
+  },[])
   return (
     <main className="min-h-screen from-gray-900 bg-gradient-to-b to-gray-800 pt-20">
       <motion.div
@@ -23,17 +47,19 @@ export default function Projects() {
           transition={{ duration: 1.2 }}
           className=" lg:px-8 px-10 pt-16 flex lg:flex-row flex-col gap-6"
         >
-          <div className="w-[300px]  text-gray-200  flex flex-col rounded-md shadow-xl
+          {projects?.map((project,index)=>(
+          <div key={index} className="w-[300px]  text-gray-200  flex flex-col rounded-md shadow-xl
           bg-gray-800">
          
-           <div><Image src={proje1} alt="project image" className="w-full rounded-md h-56"  /></div>
+           <div><Image   src={project.imageUrl}
+                  alt="project image" className="w-full rounded-md h-56" width={200}  height={100}/></div>
             <div className="flex flex-col p-2">
-            <p className="text-xl flex justify-center items-center ">Portfölyo Sitesi</p>
+            <p className="text-xl flex justify-center items-center ">{project.title}</p>
           Teknolojiler:  Next js, HTML, Tailwind CSS
             </div>
-          </div>
+          </div>))}
 
-          <div className="w-[300px] text-gray-200  flex flex-col rounded-md shadow-xl
+          {/* <div className="w-[300px] text-gray-200  flex flex-col rounded-md shadow-xl
           bg-gray-800
           ">
          
@@ -54,7 +80,7 @@ export default function Projects() {
             <p className="text-xl flex justify-center items-center ">E-Ticaret Sitesi</p>
           Teknolojiler:  React, HTML, Tailwind CSS
             </div>
-            </div>
+            </div> */}
 
         </motion.div>
       </motion.div>
