@@ -9,6 +9,9 @@ import { CiSearch } from "react-icons/ci";
 
 export default  function Projects() {
   const [projects,setProjects]=useState([]);
+  const [searchTerm,setSearchTerm]=useState("")
+
+const filteredProjects=projects.filter(project=>project.description.toLowerCase().includes(searchTerm.toLowerCase()))
 
   useEffect(()=>{
     async function fetchData() {
@@ -26,7 +29,6 @@ const updateProjects=data.project.map((project)=>({
   likecount:20,
 
 }))
-console.log(updateProjects)
        setProjects(updateProjects)
   
       }
@@ -61,7 +63,10 @@ setProjects(projects.map((project,id)=>
          
         </div>
          <div className="grid  lg:justify-items-end justify-items-start  lg:px-36 px-12  lg:mb-4 mt-6 text-white ">
-             <input className="relative rounded-lg bg-gray-900 p-1 border lg:px-6 px-12 ">
+             <input type="text"
+              placeholder="Ara..."
+              value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)}
+              className="relative rounded-lg bg-gray-900 p-1 border lg:px-6 px-12 ">
             </input>
             
             <CiSearch className="absolute px-2" size={35}/>
@@ -72,8 +77,8 @@ setProjects(projects.map((project,id)=>
           transition={{ duration: 1.2 }}
           className=" lg:px-8 px-10 pt-16 grid lg:flex-row flex-col gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
 
-          {projects?.map((project,index)=>(
-          <div key={index} className="w-[300px]  text-gray-200  flex flex-col rounded-md shadow-xl
+          {filteredProjects?.map((project,index)=>(
+          <div key={index} className="w-[350px]  text-gray-200  flex flex-col rounded-md shadow-xl
           bg-gray-800 hover:scale-105 ">
 
           <div>
