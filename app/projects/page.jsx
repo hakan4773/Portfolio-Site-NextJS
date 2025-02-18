@@ -6,16 +6,18 @@ import { AiFillLike } from "react-icons/ai";
 import { FaRegEye } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
+import { useRouter } from "next/navigation";
 
 export default function Projects() {
+  const router=useRouter();
   const [projects, setProjects] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   //Filtreleme fonksiyonu
   const filteredProjects = projects.filter((project) =>
-    project.description.toLowerCase().includes(searchTerm.toLowerCase())
+    project.technologies.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+console.log(projects)
   useEffect(() => {
     async function fetchData() {
       try {
@@ -32,6 +34,7 @@ export default function Projects() {
           likecount: 1,
         }));
         setProjects(updateProjects);
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -109,7 +112,8 @@ export default function Projects() {
               </div>
 
               <div className="flex flex-row space-x-4 pb-4">
-              <div className="flex justify-center items-center mx-2 p-2 bg-gray-900 rounded-xl w-40 hover:bg-gray-700"> <button className="">Görüntüle </button> </div>
+              <div className="flex justify-center items-center mx-2 p-2 bg-gray-900 rounded-xl w-40 hover:bg-gray-700"> 
+                <button onClick={()=>router.push("https://app.netlify.com/teams/buldukhakan82/sites")} className="">Görüntüle </button> </div>
 
                 <div className="p-2 flex gap-2  ">
                   <button onClick={() => HandleLike(index)}>
