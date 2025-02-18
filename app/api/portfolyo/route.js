@@ -1,7 +1,6 @@
 import portfolyo from "../../models/portfolyo";
 import connectToDatabase from "../../libs/portfolyo";
 import { NextResponse } from "next/server";
-import { FaCloudShowersWater } from "react-icons/fa6";
 
 export  async function POST(req){
 await connectToDatabase();
