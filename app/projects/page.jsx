@@ -86,7 +86,7 @@ export default function Projects() {
           {filteredProjects?.map((project, index) => (
             <div
               key={index}
-              className="w-[350px]  text-gray-200  flex flex-col rounded-md shadow-xl
+              className="w-[320px]  text-gray-200  flex flex-col rounded-md shadow-xl
           bg-gray-800 hover:scale-105 "
             >
               <div>
@@ -108,7 +108,7 @@ export default function Projects() {
 
               </div>
 
-              <div className="flex flex-row space-x-6 pb-4">
+              <div className="flex flex-row space-x-4 pb-4">
               <div className="flex justify-center items-center mx-2 p-2 bg-gray-900 rounded-xl w-40 hover:bg-gray-700"> <button className="">Görüntüle </button> </div>
 
                 <div className="p-2 flex gap-2  ">
