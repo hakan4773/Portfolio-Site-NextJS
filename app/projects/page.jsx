@@ -17,7 +17,7 @@ export default function Projects() {
   const filteredProjects = projects.filter((project) =>
     project.technologies.toLowerCase().includes(searchTerm.toLowerCase())
   );
-console.log(projects)
+
   useEffect(() => {
     async function fetchData() {
       try {
