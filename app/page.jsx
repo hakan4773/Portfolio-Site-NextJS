@@ -55,7 +55,6 @@ export default function Home() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-center"
         >
-          {/* Hero Section */}
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
             Merhaba, Ben{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
@@ -85,7 +84,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Call-to-Action Buttons */}
           <div className="flex justify-center gap-4 mb-16">
             <Link href="/projects">
               <motion.button
@@ -110,7 +108,7 @@ export default function Home() {
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { value: projects.length, label: "Projeler" },
+              { value: projects, label: "Projeler" },
               { value: blogs, label: "Bloglar" },
               { value: certificate, label: "Sertifikalar" },
             ].map((item, index) => (
