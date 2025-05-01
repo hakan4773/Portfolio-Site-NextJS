@@ -9,7 +9,7 @@ export default function Home() {
   const [projects, setProjects] = useState([]);
   const [blogs, setBlogs] = useState(0);
   const [certificate, setCertificate] = useState(0);
-
+  const [animatedProjectCount, setAnimatedProjectCount] = useState(0);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -20,7 +20,7 @@ export default function Home() {
           throw new Error("Failed to fetch data");
         }
         const data = await res.json();
-        setProjects(data.project);
+        setProjects(data.project || []);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -29,17 +29,17 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    animate(0, projects.length, {
+    animate(0,projects.length, {
       duration: 2,
       ease: "easeOut",
-      onUpdate: (latest) => setProjects(Math.round(latest)),
+      onUpdate: (latest) => setAnimatedProjectCount(Math.round(latest)),
     });
-    animate(0, 5, {
+    animate(0, 0, {
       duration: 2,
       ease: "easeOut",
       onUpdate: (latest) => setBlogs(Math.round(latest)),
     });
-    animate(0, 5, {
+    animate(0, 0, {
       duration: 2,
       ease: "easeOut",
       onUpdate: (latest) => setCertificate(Math.round(latest)),
@@ -108,7 +108,7 @@ export default function Home() {
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { value: projects, label: "Projeler" },
+              { value: animatedProjectCount, label: "Projeler" },
               { value: blogs, label: "Bloglar" },
               { value: certificate, label: "Sertifikalar" },
             ].map((item, index) => (
