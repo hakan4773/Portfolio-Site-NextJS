@@ -76,6 +76,9 @@ export default function Header() {
             <Link href="/projects" className="block text-white hover:text-blue-500">
               Projeler
             </Link>
+               <Link href="/certificate" className="text-white hover:text-blue-500 transition">
+              Sertifikalar
+            </Link>
             <Link href="/contact" className="block text-white hover:text-blue-500">
               İletişim
             </Link>
