@@ -1,4 +1,5 @@
 'use client';
+import { useFormik } from 'formik';
 import { motion } from 'framer-motion';
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -6,9 +7,40 @@ import { BiLogoGmail } from "react-icons/bi";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
 export default function Contact() {
+
+const formik=useFormik({
+  initialValues: {
+    name: '',
+    email: '',
+    message: ''
+  },
+  onSubmit: async (values, { resetForm }) => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+
+      resetForm();
+      alert('Message sent successfully!');
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to send message');
+    }
+  }
+})
+
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 pt-20">
-      <div className="container mx-auto px-4 py-20">
+      <div  className="container mx-auto px-4 py-20">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -17,7 +49,7 @@ export default function Contact() {
 
           <h1 className="text-4xl font-bold text-white mb-8">İletişim</h1>
           
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={formik.handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-white mb-2">
                 İsim
@@ -25,6 +57,9 @@ export default function Contact() {
               <input
                 type="text"
                 id="name"
+                name='name'
+                value={formik.values.name}
+                onChange={formik.handleChange}
                 className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="İsminizi girin"
               />
@@ -37,6 +72,9 @@ export default function Contact() {
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
                 className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="E-posta adresinizi girin"
               />
@@ -49,6 +87,9 @@ export default function Contact() {
               <textarea
                 id="message"
                 rows="5"
+                name="message"
+                value={formik.values.message}
+                onChange={formik.handleChange}
                 className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Mesajınızı yazın"
               ></textarea>
