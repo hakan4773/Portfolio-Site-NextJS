@@ -2,7 +2,10 @@
 import React, { useEffect } from 'react'
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 function page() {
+    const router = useRouter();
      const [certificates, setCertificates] = React.useState([]);
 useEffect(()=>{
     async function fetchData() {
@@ -65,35 +68,16 @@ useEffect(()=>{
                   <p className="text-gray-400 text-sm line-clamp-3">{cerfificate.description}</p>
                 </div>
 
-                {/* <div className="flex items-center justify-between p-6 border-t border-gray-700">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => router.push("https://app.netlify.com/teams/buldukhakan82/sites")}
+                <div className="flex items-center justify-between p-6 border-t border-gray-700">
+                  <Link
+                    href={`https://${cerfificate.link}`}
                     className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition"
-                  >
+                    target="_blank"
+                 >
                     Görüntüle
-                  </motion.button>
-                  <div className="flex items-center gap-4">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      onClick={() => handleLike(index)}
-                      aria-label={project.liked ? "Beğeniyi kaldır" : "Beğen"}
-                    >
-                      {project.liked ? (
-                        <AiFillLike size={24} className="text-blue-400" />
-                      ) : (
-                        <AiOutlineLike size={24} className="text-gray-400" />
-                      )}
-                    </motion.button>
-                    <span className="text-sm text-gray-400">{project.likecount}</span>
-                    <div className="flex items-center gap-2">
-                      <FaRegEye size={20} className="text-gray-400" />
-                      <span className="text-sm text-gray-400">{project.likecount}</span>
-                    </div>
-                  </div>
-                </div> */}
+                  </Link>
+                 
+                </div>
               </motion.div>
             ))
           ) : (
