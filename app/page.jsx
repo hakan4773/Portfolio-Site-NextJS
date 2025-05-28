@@ -24,8 +24,8 @@ export default function Home() {
         }
         const projectsData = await projectsRes.json();
         const certificateData = await certificateRes.json();
-        setProjects(projectsData.portfolyo || []);
-        setCertificate(certificateData.certificate.length || 0);
+        setProjects(projectsData.project || []);
+        setCertificate(certificateData.certificate || []);
 
       } catch (error) {
         console.error("Error fetching data:", error);
