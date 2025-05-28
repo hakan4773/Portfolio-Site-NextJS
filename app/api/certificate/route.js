@@ -29,3 +29,13 @@ export async function POST(req) {
         return NextResponse.json({ message: 'Something went wrong', error: error.message }, { status: 500 });
     }
 }
+export async function GET() {   
+    await connectToDatabase();
+    try {
+        const certificates = await Certificate.find().sort({ createdAt: -1 });
+        return NextResponse.json({ certificate: certificates }, { status: 200 });
+    } catch (error) {
+        console.error('Error:', error);
+        return NextResponse.json({ message: 'Something went wrong', error: error.message }, { status: 500 });
+    }
+}
