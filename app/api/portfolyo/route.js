@@ -30,19 +30,26 @@ return NextResponse.json({ message: 'Portfolio item added successfully' }, { sta
 }
 }
 
-export async function GET(){
-    await connectToDatabase();
-try {
+export async function GET() {
+  try {
+    const projects = await Portfolio.find().sort({ createdAt: -1 }).lean();
     
-const project=await portfolyo.find();
-if(!project){
-    return NextResponse.json({message:"Portfoy is not found"})
-}
+    if (!projects || projects.length === 0) {
+      return NextResponse.json(
+        { message: 'No portfolio items found' },
+        { status: 404 }
+      );
+    }
 
-return NextResponse.json({project})
-} catch (error) {
-    return NextResponse.json({message:"Error"})
-}
+    return NextResponse.json({ data: projects });
+
+  } catch (error) {
+    console.error('Database Error:', error);
+    return NextResponse.json(
+      { message: 'Internal server error', error: error.message },
+      { status: 500 }
+    );
+  }
 }
 
 export async function PUT(req,{params}) {
