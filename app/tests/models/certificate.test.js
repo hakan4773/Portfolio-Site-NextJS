@@ -17,7 +17,7 @@ test("certificate model saves correctly",async ()=>{
      title: "test certificate",
      description: "deneme",
      imageUrl: "5.jpg",
-     link: "https://:www.techcareer.net",
+     link: "https://www.techcareer.net",
    };
    const certificate=await Certificate.create(testCertificate);
    expect(certificate.title).toBe("test certificate");

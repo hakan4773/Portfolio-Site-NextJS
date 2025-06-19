@@ -51,12 +51,6 @@ export default function Home() {
       onUpdate: (latest) => setCertificateCount(Math.round(latest)),
     });
   }, [projects, certificate]);
-
-  console.log("certificate:", certificate);
-  console.log("certificateCount:", certificateCount);
-
-
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white">
       <div className="container mx-auto px-4 py-16 lg:py-24">
@@ -98,7 +92,7 @@ export default function Home() {
           <div className="flex justify-center gap-4 mb-16">
             <Link href="/projects">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 8px 32px rgba(59, 130, 246, 0.5)" }}
+                whileHover={{scale: 1.05,boxShadow: "0 8px 32px rgba(59, 130, 246, 0.5)",}}
                 whileTap={{ scale: 0.95 }}
                 className="bg-blue-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition"
               >
@@ -106,8 +100,7 @@ export default function Home() {
               </motion.button>
             </Link>
             <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 8px 32px rgba(255, 255, 255, 0.2)" }}
+              <motion.button  whileHover={{  scale: 1.05, boxShadow: "0 8px 32px rgba(255, 255, 255, 0.2)"}}
                 whileTap={{ scale: 0.95 }}
                 className="bg-transparent border-2 border-blue-500 text-blue-400 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold hover:bg-blue-500/10 transition"
               >

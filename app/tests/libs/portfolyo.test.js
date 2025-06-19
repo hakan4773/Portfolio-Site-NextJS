@@ -1,9 +1,9 @@
-import connectToDatabase from '../../libs/portfolyo';  // doğru yolu yaz
+import connectToDatabase from '../../libs/portfolyo';  
 
 describe('MongoDB Connection Helper', () => {
   it('should connect to database successfully', async () => {
     const conn = await connectToDatabase();
-    expect(conn.connection.readyState).toBe(1);  // conn.connection.readyState veya conn.readyState olabilir, deneyebilirsin
+    expect(conn.connection.readyState).toBe(1); 
   });
 
   it('should reuse existing connection', async () => {
