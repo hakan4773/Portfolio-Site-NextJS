@@ -86,7 +86,7 @@ const formik=useFormik({
               </label>
               <textarea
                 id="message"
-                rows="5"
+                rows={5}
                 name="message"
                 value={formik.values.message}
                 onChange={formik.handleChange}
@@ -107,7 +107,7 @@ const formik=useFormik({
           <div className="mt-12 text-center space-y-4">
             <h2 className="text-2xl font-bold text-white">Diğer İletişim Kanalları</h2>
             <div className="flex justify-center space-x-6">
-              <a href="buldukhakan82@gmail.com" className="text-gray-300 hover:text-blue-500">
+              <a href="mailto:buldukhakan82@gmail.com" className="text-gray-300 hover:text-blue-500">
                 <BiLogoGmail size={30} className='transition delay-150 ease-in-out duration-300 hover:translate-y-1 hover:scale-110 hover:rotate-[360deg] '/>
               </a>
               <a href="https://linkedin.com/in/hakan-bulduk-b3a084317" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500">
