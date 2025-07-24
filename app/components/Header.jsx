@@ -21,10 +21,13 @@ export default function Header() {
             <Link href="/about" className="text-white hover:text-blue-500 transition">
               Hakkımda
             </Link>
+            <Link href="/CV" className=" text-white hover:text-blue-500">
+              CV
+            </Link>
             <Link href="/projects" className="text-white hover:text-blue-500 transition">
               Projeler
             </Link>
-                <Link href="/certificate" className="text-white hover:text-blue-500 transition">
+            <Link href="/certificate" className="text-white hover:text-blue-500 transition">
               Sertifikalar
             </Link>
             <Link href="/contact" className="text-white hover:text-blue-500 transition">
@@ -73,10 +76,13 @@ export default function Header() {
             <Link href="/about" className="block text-white hover:text-blue-500">
               Hakkımda
             </Link>
+            <Link href="/CV" className="block text-white hover:text-blue-500">
+              CV
+            </Link>
             <Link href="/projects" className="block text-white hover:text-blue-500">
               Projeler
             </Link>
-               <Link href="/certificate" className="text-white hover:text-blue-500 transition">
+               <Link href="/certificate" className="block text-white hover:text-blue-500 transition">
               Sertifikalar
             </Link>
             <Link href="/contact" className="block text-white hover:text-blue-500">
