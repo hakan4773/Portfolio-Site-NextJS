@@ -109,13 +109,14 @@ export default function Projects() {
                     <span className="font-semibold">Teknolojiler:</span> {project.technologies}
                   </p>
                   <p className="text-gray-400 text-sm line-clamp-3">{project.description}</p>
+                  
                 </div>
 
                 <div className="flex items-center justify-between p-6 border-t border-gray-700">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => router.push("https://app.netlify.com/teams/buldukhakan82/sites")}
+                    onClick={() => router.push(project.link)}
                     className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition"
                   >
                     Görüntüle

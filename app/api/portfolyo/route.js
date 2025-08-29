@@ -6,11 +6,10 @@ export  async function POST(req){
 await connectToDatabase();
 try {
     const body = await req.json();
-    const { title,technologies, description,imageUrl } = body;
+    const { title,technologies, description,imageUrl,link } = body;
     
 
-
-    if(!title || !technologies || !description || !imageUrl){
+    if(!title || !technologies || !description || !imageUrl || !link){
         return NextResponse.json({ message: 'All fields are required' }, { status: 400 });
         }
 
@@ -18,8 +17,8 @@ try {
         title,
         technologies,
         description,
-        imageUrl
-        
+        imageUrl,
+        link
       });
 await newPortfolio.save();
 return NextResponse.json({ message: 'Portfolio item added successfully' }, { status: 201 });
@@ -50,7 +49,7 @@ return NextResponse.json({project})
 
 export async function PUT(req) {
   const body = await req.json();
-  const { title, technologies, description, imageUrl } = body;
+  const { title, technologies, description, imageUrl, link } = body;
   const id = req.nextUrl.searchParams.get("id");
   if (!id) {
     return NextResponse.json({ message: "ID is required" }, { status: 400 });
@@ -63,7 +62,7 @@ export async function PUT(req) {
     const updateProjects = await portfolyo.findByIdAndUpdate(
       { _id: new Object(id) },
 
-      { title, technologies, description, imageUrl },
+      { title, technologies, description, imageUrl, link },
       { new: true, runValidators: true }
     );
 
