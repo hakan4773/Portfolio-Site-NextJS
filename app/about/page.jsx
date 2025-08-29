@@ -29,12 +29,12 @@ export default function About() {
                 <div className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-blue-500 font-semibold">Frontend</h3>
                   <ul className="text-gray-300 mt-2">
-                  <li>JavaScript</li>
+                   <li>JavaScript</li>
                     <li>React / Next.js</li>
                     <li>TypeScript</li>
                     <li>Tailwind CSS</li>
                     <li>Material UI</li>
-
+                    <li>Jquery</li>
                   </ul>
                 </div>
                 <div className="bg-gray-800 p-4 rounded-lg">
@@ -43,7 +43,7 @@ export default function About() {
                     <li>Node.js</li>
                     <li>Express</li>
                     <li>C#</li>
-                     <li>ASP.NET</li>
+                    <li>ASP.NET</li>
                     <li>Python</li>
                   </ul>
                 </div>
@@ -53,6 +53,7 @@ export default function About() {
                   <ul className="text-gray-300 mt-2">
                   <li>MSSQL</li>
                   <li>MongoDB</li>
+                  <li>Supabase</li>
                   </ul>
                 </div>
 
@@ -63,6 +64,8 @@ export default function About() {
                   <li>Linux</li>
                   <li>Docker</li>
                   <li>Microsoft SQL Server</li>
+                  <li>Git / GitHub</li>
+                  <li>Visual Studio Code</li>
                   </ul>
                 </div>
               </div>
